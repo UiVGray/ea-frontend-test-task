@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lead Advisors</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  </head>
+
+  <body>
+  <div class="wrapper">
+    <div> 
+      <img src="img/Figure.svg" id="figure-left"> 
+      <img src="img/Figure2.svg" id="figure-right"> 
+    </div>
+
+    <div class="header">
+      <a href="index.html">
+        <button type="button" class="current">
+          <img src="img/Group.svg"/>
+        </button>
+      </a>
+    </div>
+
+    <main>
+      <div class="content">
+      <div class="heading-group">
+        <div class="heading">Under Construction</div>
+        <div id="desc">We're making lots of improvements and will be back soon</div>
+      </div>
+      <div class="coming-soon">
+          <div class="countdown">
+            <ul>
+              <li>
+                <div id="day">Time</div>
+                <div class="container">
+                  <img src="img/Days.png">
+          </div>
+              </li>
+              <li class="separator">:</li>
+              <li>
+                <div id="hour">Time</div>
+                <div class="container">
+                  <img src="img/Hours.png">
+                </div>
+              </li>
+              <li class="separator">:</li>
+              <li>
+                <div id="minute">Time</div>
+                <div class="container">
+                  <img src="img/Minutes.png">
+          </div>
+              </li>
+              <li class="separator">:</li>
+              <li>
+                <div id="second">Time</div>
+                <div class="container">
+                  <img src="img/Seconds.png">
+                </div>
+              </li>
+            </ul>
+          </div>
+      </div>
+      <script src="js/countdown.js" defer></script>
+      <div class="main-page-invitation">
+        <div id="offer">Check our event page when you wait:</div>
+      <div class="main-page-invitation-button">
+        <a href="https://www.egorovagency.by/">
+          <button type="button" class="external">
+            <span id="redir">Go to the event</span>
+            <i class="fa-solid fa-arrow-right" style="color: #ffffff"></i>
+          </button>
+        </a>
+      </div>
+      </div>
+      </div>
+    </main>
+
+    <div class="footer">
+      <div class="form-container" data-input-invalid="#invalid-email">
+        <div class="container">
+        <div class="vertical-center">
+          <form class="form" id="email-form" action="" onsubmit="event.preventDefault()">
+            <div class="input-field">
+              <input type="email" class="form-input" id="form-input" name="subscr" placeholder="Enter your Email and get notified">
+            </div>
+            <button type="submit" class="submit-button" data-popup-open="#popup" onsubmit="event.preventDefault(); submitter();">
+              <i class="fa-solid fa-arrow-right" style="color: #ffffff"></i>
+            </button>
+          </form>
+        </div>
+        </div>
+      </div>
+      <script src="js/validation.js" defer></script>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <button type="button" data-popup-close class="popup-xmark" onclick="closePopup"><i class="fa-thin fa-xmark"></i></button>
+    <h3 class="popuptext">SUCCESS!</h3>
+    <p>You have successfully subscribed to the email newsletter</p>
+    <button type="button" data-popup-close class="popup-button" onclick="closePopup">Close</button>
+  </div>
+  <div id="overlay"></div>
+  </body>
+
+</html>
