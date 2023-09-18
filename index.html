@@ -67,7 +67,7 @@
       <div class="main-page-invitation">
         <div id="offer">Check our event page when you wait:</div>
       <div class="main-page-invitation-button">
-        <a href="https://www.egorovagency.by/">
+        <a href="https://www.google.com/">
           <button type="button" class="external">
             <span id="redir">Go to the event</span>
             <i class="fa-solid fa-arrow-right" style="color: #ffffff"></i>
@@ -79,14 +79,14 @@
     </main>
 
     <div class="footer">
-      <div class="form-container" data-input-invalid="#invalid-email">
+      <div class="form-container" id="email-validation">
         <div class="container">
         <div class="vertical-center">
-          <form class="form" id="email-form" action="" onsubmit="event.preventDefault()">
+          <form class="form" id="email-form" action="/" method="POST">
             <div class="input-field">
               <input type="email" class="form-input" id="form-input" name="subscr" placeholder="Enter your Email and get notified">
             </div>
-            <button type="submit" class="submit-button" data-popup-open="#popup" onsubmit="event.preventDefault(); submitter();">
+            <button type="submit" class="submit-button">
               <i class="fa-solid fa-arrow-right" style="color: #ffffff"></i>
             </button>
           </form>
