@@ -1,10 +1,12 @@
 const closePopupButtons = document.querySelectorAll(['data-popup-close']);
+const openPopupButtons = document.querySelectorAll(['data-popup-target']);
 const overlay = document.getElementById('overlay');
 const input = document.getElementById('form-input').value;
+const form = document.getElementById('email-form');
 
-function emailValidate(email) {
+function emailValidate(input) {
   const regVal = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return regVal.test(String(email).toLowerCase());
+  return regVal.test(String(input).toLowerCase());
 }
 
 overlay.addEventListener('click', () => {
@@ -21,6 +23,12 @@ closePopupButtons.forEach(button => {
   });
 });
 
+function openPopup(popup) {
+  if (popup == null) return
+  popup.classList.add('active');
+  overlay.classList.add('active');
+}
+
 function closePopup(popup) {
   if (popup == null) return
   popup.classList.remove('active');
@@ -28,22 +36,22 @@ function closePopup(popup) {
 }
 
 function submitConsequence(popup) {
-  if (popup === document.querySelector(button.dataset.popupOpen)) {
-    popup.classList.add('active');
-    overlay.classList.add('active');
+  if (popup === document.getElementById('popup')) {
+    openPopup(popup);
   } else {
     popup.classList.add('invalid-email');
   }
 }
 
-async function submitter() {  
+form.addEventListener('submit', async function submitter(event) { 
+  event.preventDefault();
   let promise = new Promise((resolve) => {
-    if(emailValidate(input.value)) {
-      resolve(document.querySelector(button.dataset.popupOpen));
+    if(emailValidate(input)) {
+      resolve(document.getElementById('popup'));
     } else {
-      resolve(document.querySelector(div.dataset.inputInvalid)); 
+      resolve(document.getElementById('email-validation'));
     }
   });
   let popup = await promise;
   submitConsequence(popup);
-}
+});
